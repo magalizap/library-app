@@ -1,15 +1,22 @@
 import { FlatList } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import BookItem from '../components/BookItem'
-import { BOOKS } from '../data/books'
+import { useSelector, useDispatch, connect } from 'react-redux'
+import { filteredBook, selectedBook } from '../store/actions/book.action'
 
-const CategoryBookScreen = ({navigation, route}) => {
+const CategoryBookScreen = ({navigation}) => {
 
-  const books = BOOKS.filter(book => book.category === route.params.categoryID)
+  const dispatch = useDispatch()
+  const categoryBooks = useSelector((state) => state.books.filteredBook)
+  const category = useSelector((state) => state.categories.selected)
 
+  useEffect(() => {
+    dispatch(filteredBook(category.id))
+  }, [])
+  
   const handleSelectedCategory = (item) => {
+    dispatch(selectedBook(item.id))
     navigation.navigate('Details', {
-      productID: item.id,
       name: item.name
     })
   }
@@ -20,14 +27,14 @@ const CategoryBookScreen = ({navigation, route}) => {
 
   return (
     <FlatList
-    data={books} 
+    data={categoryBooks} 
     keyExtractor={(item) => item.id} 
     renderItem={renderBookItem}
     numColumns={2}
-  />
+    />
   )
 }
 
-export default CategoryBookScreen
+export default connect()(CategoryBookScreen)
 
 

@@ -44,7 +44,7 @@ export default BottomTabNavigator = () => {
                 title: 'Catálogo'
             }}/> 
             <BottomTabs.Screen name={CartTab} component={CartNavigator}  options={{
-                title: 'Carrito'
+                title: 'Carrito'  
             }}/>   
 
         </BottomTabs.Navigator>

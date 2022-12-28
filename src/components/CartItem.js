@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import Entypo from '@expo/vector-icons/Entypo'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
 const CartItem = ({item, onDelete}) => {
@@ -15,7 +15,7 @@ const CartItem = ({item, onDelete}) => {
             <Text>Precio: ${item.price}</Text>
         </View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
-            <Entypo name='trash' size={24} color='black'/>
+            <Ionicons name='trash' size={24} color='black'/>
         </TouchableOpacity>
       </View>
     </View>
