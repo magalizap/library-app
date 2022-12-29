@@ -30,7 +30,7 @@ const CategoryBookScreen = ({navigation}) => {
     data={categoryBooks} 
     keyExtractor={(item) => item.id} 
     renderItem={renderBookItem}
-    numColumns={2}
+
     />
   )
 }

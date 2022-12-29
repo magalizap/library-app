@@ -5,13 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from './CartNavigator';
+import OrderNavigator from './OrderNavigator';
 
 
 const BottomTabs = createBottomTabNavigator();
 
 const ShopTab = 'ShopTab'
 const CartTab = 'CartTab'
-
+const OrderTab = 'OrderTab'
 
 export default BottomTabNavigator = () => {
   return (
@@ -30,6 +31,8 @@ export default BottomTabNavigator = () => {
                         iconName = focused ? 'book' : 'book-outline'
                     }else if(rn === CartTab){
                         iconName = focused ? 'cart' : 'cart-outline'
+                    }else if(rn === OrderTab){
+                        iconName = focused ? 'list' : 'list-outline'
                     }
 
                     return <Ionicons name={iconName} size={size} color={color} />
@@ -45,6 +48,9 @@ export default BottomTabNavigator = () => {
             }}/> 
             <BottomTabs.Screen name={CartTab} component={CartNavigator}  options={{
                 title: 'Carrito'  
+            }}/>   
+            <BottomTabs.Screen name={OrderTab} component={OrderNavigator}  options={{
+                title: 'Órdenes'  
             }}/>   
 
         </BottomTabs.Navigator>

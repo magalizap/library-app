@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
 const BookItem = ({item, onSelected}) => {
   return (
-    <TouchableOpacity onPress={() => onSelected(item)}>
-        <View style={styles.bookItem}>
+    <TouchableOpacity style={styles.bookItem} onPress={() => onSelected(item)}>
+        <View >
             <View>
+                <Image style={styles.image} source={item.image}/>
                 <Text style={styles.title}>{item.name}</Text>
             </View>
             <View style={styles.alinear}>
@@ -22,10 +23,11 @@ export default BookItem
 const styles = StyleSheet.create({
     bookItem: {
         padding: 20,
-        margin: 10,
+        margin: 20,
         borderRadius: 4,
         backgroundColor: '#B6AD90',
-        width: '100%'
+        
+
     },
     title: {
         fontSize: 20,
@@ -38,5 +40,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 20
+    },
+    image: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+
     }
 })

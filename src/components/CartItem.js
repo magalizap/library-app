@@ -3,6 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
+
+
 const CartItem = ({item, onDelete}) => {
   return (
     <View style={styles.item}>
@@ -15,7 +17,7 @@ const CartItem = ({item, onDelete}) => {
             <Text>Precio: ${item.price}</Text>
         </View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
-            <Ionicons name='trash' size={24} color='black'/>
+            <Ionicons name='trash' size={24} color='#656D4A'/>
         </TouchableOpacity>
       </View>
     </View>
