@@ -1,6 +1,5 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 //import Entypo from '@expo/vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ShopNavigator from './ShopNavigator';
@@ -16,7 +15,6 @@ const OrderTab = 'OrderTab'
 
 export default BottomTabNavigator = () => {
   return (
-    <NavigationContainer>
         <BottomTabs.Navigator 
             initialRouteName={ShopTab}
             screenOptions={({route}) => ({
@@ -37,11 +35,7 @@ export default BottomTabNavigator = () => {
 
                     return <Ionicons name={iconName} size={size} color={color} />
                 }
-            })}
-            
-           
-            
-            >
+            })}>
 
             <BottomTabs.Screen name={ShopTab} component={ShopNavigator} options={{
                 title: 'Catálogo'
@@ -52,9 +46,7 @@ export default BottomTabNavigator = () => {
             <BottomTabs.Screen name={OrderTab} component={OrderNavigator}  options={{
                 title: 'Órdenes'  
             }}/>   
-
         </BottomTabs.Navigator>
-    </NavigationContainer>
   );
 }
 
