@@ -1,10 +1,11 @@
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import Entypo from '@expo/vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ShopNavigator from './ShopNavigator';
 import CartNavigator from './CartNavigator';
 import OrderNavigator from './OrderNavigator';
+import SalesNavigator from './SalesNavigator'
+import { COLORS } from '../constants/colors';
 
 
 const BottomTabs = createBottomTabNavigator();
@@ -12,7 +13,7 @@ const BottomTabs = createBottomTabNavigator();
 const ShopTab = 'ShopTab'
 const CartTab = 'CartTab'
 const OrderTab = 'OrderTab'
-
+const SalesTab = 'SalesTab'
 export default BottomTabNavigator = () => {
   return (
         <BottomTabs.Navigator 
@@ -20,7 +21,7 @@ export default BottomTabNavigator = () => {
             screenOptions={({route}) => ({
                 headerShown: false, 
                 tabBarStyle: Styles.tabBar,
-                tabBarActiveTintColor: '#656D4A',
+                tabBarActiveTintColor: COLORS.DARK_OLIVE_GREEN,
                 tabBarIcon: ({focused, color, size}) => {
                     let iconName
                     let rn = route.name
@@ -31,6 +32,8 @@ export default BottomTabNavigator = () => {
                         iconName = focused ? 'cart' : 'cart-outline'
                     }else if(rn === OrderTab){
                         iconName = focused ? 'list' : 'list-outline'
+                    }else if(rn === SalesTab){
+                        iconName = focused ? 'library' : 'library-outline'
                     }
 
                     return <Ionicons name={iconName} size={size} color={color} />
@@ -46,6 +49,9 @@ export default BottomTabNavigator = () => {
             <BottomTabs.Screen name={OrderTab} component={OrderNavigator}  options={{
                 title: 'Órdenes'  
             }}/>   
+            <BottomTabs.Screen name={SalesTab} component={SalesNavigator}  options={{
+                title: 'Mis ventas'  
+            }}/>   
         </BottomTabs.Navigator>
   );
 }
@@ -59,45 +65,7 @@ const Styles = StyleSheet.create({
         elevation: 5,
         position: 'absolute',
         height: 90,
-    },
-    item: {
-        flex: 1,
-        marginTop: 20,
-        justifyContent: 'center',
-        alignItems: 'center'
+        
     }
 })
 
-/**
- * export default BottomTabNavigator = () => {
-  return (
-    <NavigationContainer>
-        <BottomTabs.Navigator 
-            initialRouteName='ShopTab'
-            screenOptions={{
-                headerShown: false, 
-                tabBarShowLabel:false, 
-                tabBarStyle: Styles.tabBar,
-            }}
-        >
-        <BottomTabs.Screen name="ShopTab" component={ShopNavigator} options={{
-            tabBarIcon: ({focus}) => (
-                <View style={Styles.item}>
-                    <Entypo name='book' size={20} color='black'/>
-                    <Text>Catálogo</Text>
-                </View>
-            )
-        }}/>
-        <BottomTabs.Screen name="CartTab" component={CartNavigator} options={{
-            tabBarIcon: ({focus}) => (
-                <View style={Styles.item}>
-                    <Entypo name='shopping-cart' size={20} color='black'/>
-                    <Text >Carrito</Text>
-                </View>
-            )
-        }}/>
-        </BottomTabs.Navigator>
-    </NavigationContainer>
-  );
-}
- */

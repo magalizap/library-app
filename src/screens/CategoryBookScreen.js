@@ -1,4 +1,4 @@
-import { FlatList } from 'react-native'
+import { FlatList, StyleSheet } from 'react-native'
 import React, { useEffect } from 'react'
 import BookItem from '../components/BookItem'
 import { useSelector, useDispatch, connect } from 'react-redux'
@@ -22,11 +22,12 @@ const CategoryBookScreen = ({navigation}) => {
   }
 
   const renderBookItem = ({item}) => (
-    <BookItem item={item} onSelected={handleSelectedCategory}/>
+    <BookItem item={item} onSelected={handleSelectedCategory} />
   )
 
   return (
     <FlatList
+    style={styles.bookItem}
     data={categoryBooks} 
     keyExtractor={(item) => item.id} 
     renderItem={renderBookItem}
@@ -37,4 +38,8 @@ const CategoryBookScreen = ({navigation}) => {
 
 export default connect()(CategoryBookScreen)
 
-
+const styles = StyleSheet.create({
+  bookItem: {
+    marginBottom: 100
+  }
+})

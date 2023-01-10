@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-
+import { COLORS } from '../constants/colors'
 
 const GridItem = ({item, onSelected}) => {
   return (
-    <View style={styles.gridItem}>
+    <View style={styles.screen}>
         <TouchableOpacity style={{...styles.container, backgroundColor: item.color }} onPress={() => onSelected(item)}>
             <View>
                 <Text style={styles.title}>{item.title}</Text>
@@ -18,11 +18,12 @@ const GridItem = ({item, onSelected}) => {
 export default GridItem
 
 const styles = StyleSheet.create({
-    gridItem: {
+    screen: {
         flex: 1,
         borderRadius: 6,
         margin: 15,
         height: 150,
+       
     },
     container: {
         flex: 1,
@@ -39,6 +40,6 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'Andika-Bold',
         fontSize: 18,
-        color: '#C2C5AA'
+        color: COLORS.LAUREL_GREEN
     }
 })

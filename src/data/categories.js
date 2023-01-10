@@ -1,33 +1,35 @@
+import { COLORS } from "../constants/colors";
+
 export const CATEGORIES = [
     {
         id: '1',
         title: 'Fantasia',
-        color: '#936639'
+        color: COLORS.COYOTE_BROWN
     },
     {
         id: '2',
         title: 'Novela',
-        color: '#A68A64'
+        color: COLORS.CAMEL
 
     },
     {
         id: '3',
         title: 'Distopías',
-        color: '#656D4A'
+        color: COLORS.DARK_OLIVE_GREEN
     },
     {
         id: '4',
         title: 'Drama',
-        color: '#414833'
+        color: COLORS.RIFLE_GREEN
     },
     {
         id: '5',
         title: 'Acción',
-        color: '#7F4F24'
+        color: COLORS.RUSSET
     },
     {
         id: '6',
         title: 'Comedia',
-        color: '#A4AC86'
+        color: COLORS.LAUREL_GREEN_SECOND
     },
 ]

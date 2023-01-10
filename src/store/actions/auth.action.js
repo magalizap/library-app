@@ -1,4 +1,4 @@
-import { URL_API, URL_AUTH_SIGNUP } from "../../constants/Database";
+import { URL_AUTH_SIGNUP } from "../../constants/Database";
 
 export const SIGNUP = 'SIGNUP'
 export const LOGIN = 'LOGIN'
@@ -13,7 +13,7 @@ export const signUp = (email, password) => {
                 }, body: JSON.stringify({
                     email,
                     password,
-                    returnSecureToken: true
+                    returnSecureToken: true,
                 })
             })
 

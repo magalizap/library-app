@@ -4,6 +4,7 @@ import GridItem from '../components/GridItem'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { selectedCategory } from '../store/actions/category.action'
 
+
 const CategoriesScreen = ({ navigation }) => {
 
   const categories = useSelector((state) => state.categories.categories)
@@ -17,7 +18,7 @@ const CategoriesScreen = ({ navigation }) => {
   }
 
   const renderGridItem = ({item}) => (
-    <GridItem item={item} onSelected={handleSelectedCategory}/>
+    <GridItem item={item} onSelected={handleSelectedCategory} />
   )
 
   return (

@@ -1,25 +1,48 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import React from "react";
+import { COLORS } from "../constants/colors";
 
 const formatDay = (time) => {
-    const date = new Date(time)
-    return date.toLocaleDateString()
-}
-
-const sumTotal = (list) => list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0)
+  const date = new Date(time);
+  return date.toLocaleDateString();
+};
 
 
-const OrderItem = ({item, onDelete}) => {
+const OrderItem = ({ item, onDelete }) => {
   return (
-    <View>
+    <View style={styles.order}>
       <View>
-        <Text>Fecha:{formatDay(item.date)}</Text>
-        <Text>Valor total: ${sumTotal(item.items)}</Text>
+        <Text style={styles.date}>{formatDay(item.date)}</Text>
+        <Text style={styles.total}>${item.total}</Text>
+      </View>
+      <View style={styles.action}>
+      <TouchableOpacity onPress={() => onDelete(item.id)}>
+        <Ionicons name="trash" color={COLORS.DARK_OLIVE_GREEN} size={22}/>
+      </TouchableOpacity>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default OrderItem
+export default OrderItem;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  order: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    margin: 10,
+    borderColor: COLORS.LAUREL_GREEN,
+    borderWidth: 1,
+    borderRadius: 6
+  },
+  date: {
+    fontSize: 18,
+  },
+  total: {
+    fontSize: 18,
+    fontFamily: 'Andika-Regular'
+  }
+});

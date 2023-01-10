@@ -1,11 +1,11 @@
-import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from "../actions/cart.action"; //comparar código mío con el de moy -- el error está dentro
+import { ADD_ITEM, CONFIRM_CART, REMOVE_ITEM } from "../actions/cart.action";
 
 const initialState = {
   items: [],
   total: 0,
 };
 
-const sumTotal = (list) => list.map((item) => item.quantity * item.price).reduce((a, b) => a + b, 0);
+const sumTotal = (list) => (list).map(item => item.quantity * item.price).reduce((a, b) => a + b, 0);
 
   
 
@@ -24,7 +24,6 @@ const CartReducer = (state = initialState, action) => {
       if (indexItem === -1) {
         const item = { ...action.item, quantity: 1 };
         const updateCart = [...state.items, item];
-        console.log(updateCart);
         return { ...state, items: updateCart, total: sumTotal(updateCart) };
       }
       const items = [...state.items].map((item) => {

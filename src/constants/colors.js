@@ -1,4 +1,17 @@
 export const COLORS = {
-    primary: '#582F0E',
-    secondary: '#B6AD90'
+
+    // TONOS TIERRA: 
+    SEAL_BROWN: '#582F0E',
+    RUSSET: '#7F4F24',
+    COYOTE_BROWN: '#936639',
+    CAMEL: '#A68A64',
+    KHAKI_WEB: '#B6AD90',
+
+    // TONOS PASTO:
+    LAUREL_GREEN: '#C2C5AA',
+    LAUREL_GREEN_SECOND: '#A4AC86',
+    DARK_OLIVE_GREEN: '#656D4A',
+    RIFLE_GREEN: '#414833',
+    KOMBU_GREEN: '#333D29'
+
 }

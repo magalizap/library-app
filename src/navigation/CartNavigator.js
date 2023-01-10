@@ -7,8 +7,8 @@ const Stack = createNativeStackNavigator()
 export default CartNavigator = () => {
     return(
         <Stack.Navigator initialRouteName="Categories" screenOptions={{
-            headerStyle: {backgroundColor: COLORS.primary},
-            headerTintColor: COLORS.secondary,
+            headerStyle: {backgroundColor: COLORS.SEAL_BROWN},
+            headerTintColor: COLORS.KHAKI_WEB,
             headerTitleStyle: {
                 fontWeight: 'bold'
             }

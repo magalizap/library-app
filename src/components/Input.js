@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useReducer } from 'react'
+import { COLORS } from '../constants/colors'
 
 const INPUT_CHANGE = 'INPUT_CHANGE'
 const INPUT_BLUR = 'INPUT_BLUR'
@@ -26,18 +27,16 @@ const inputReducer = (state, action) => {
 
 const Input = (props) => {
 
-    const [inputState, dispatch] = useReducer(inputReducer,{
+    const [inputState, dispatch] = useReducer(inputReducer, {
         value: props.initialValue ? props.initialValue : '',
         isValid: props.initiallyValid,
         touched: false
-    } )
+    })
     
     const { onInputChange, id } = props
 
     useEffect(() => {
-        if(inputState.touched){
-            onInputChange(id, inputState.value, inputState.isValid)
-        }
+        onInputChange(id, inputState.value, inputState.isValid)
     }, [inputState, onInputChange, id])
     
     const textChangeHandler = (text) => {
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     input: {
         paddingHorizontal: 2,
         paddingVertical: 5,
-        borderBottomColor: '#C2C5AA',
+        borderBottomor: COLORS.LAUREL_GREEN,
         borderBottomWidth: 1
     },
     errorContainer: {

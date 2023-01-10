@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { COLORS } from '../constants/colors'
 
 
 
@@ -12,12 +13,12 @@ const CartItem = ({item, onDelete}) => {
         <Text style={styles.header}>{item.name}</Text>
       </View>
       <View style={styles.detail}>
-        <View>
-            <Text>Cantidad:{item.quantity}</Text>
-            <Text>Precio: ${item.price}</Text>
+        <View >
+            <Text style={styles.quantity}>Cantidad:{item.quantity}</Text>
+            <Text>Precio:${item.price}</Text>
         </View>
         <TouchableOpacity onPress={() => onDelete(item.id)}>
-            <Ionicons name='trash' size={24} color='#656D4A'/>
+            <Ionicons name='trash' size={24} color={COLORS.DARK_OLIVE_GREEN}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 8,
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc'
+        borderBottomColor: COLORS.LAUREL_GREEN
     },
     header: {
         fontSize: 18,
@@ -42,6 +43,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
-        justifyContent: 'space-between'
-    }
+        justifyContent: 'space-between',
+        marginTop: 10,
+    },
+    quantity: {
+      marginBottom: 5
+    }  
 })

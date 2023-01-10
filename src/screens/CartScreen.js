@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import CartItem from '../components/CartItem'
 import { useSelector, useDispatch } from 'react-redux'
 import {removeItem, confirmCart} from '../store/actions/cart.action'
+import { COLORS } from '../constants/colors'
 
 const CartScreen = () => {
 
@@ -15,9 +16,7 @@ const CartScreen = () => {
 
   }
 
-  const handleDeleteItem = (id) => {
-    dispatch(removeItem(id))
-  }
+  const handleDeleteItem = (id) => dispatch(removeItem(id))
 
   const renderItem = ({ item }) => (
     <CartItem item={item} onDelete={handleDeleteItem}/>
@@ -38,7 +37,6 @@ const CartScreen = () => {
           <View style={styles.total}>
             <Text style={styles.text}>Total:</Text>
             <Text style={styles.text}>${total}</Text>
-           
           </View>
         </TouchableOpacity>
       </View>
@@ -60,11 +58,11 @@ const styles = StyleSheet.create({
   },
   footer: {
     padding: 12,
-    borderTopColor: '#ccc',
+    borderTopColor: COLORS.LAUREL_GREEN,
     borderTopWidth: 1
   },
   confirm: {
-    backgroundColor: '#ccc',
+    backgroundColor: COLORS.LAUREL_GREEN,
     borderRadius: 10,
     padding: 10,
     flexDirection: 'row',

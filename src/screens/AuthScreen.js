@@ -37,11 +37,11 @@ const AuthScreen = () => {
     const [isSingUp, setIsSingUp] = useState(true)
 
 
-    /*useEffect(() => {
+    useEffect(() => {
         if(error){
             Alert.alert('A ocurrido un error', error, [{text: 'OK'}])
         }
-    }, [error])*/
+    }, [error])
 
     const [formState, formDispatch] = useReducer(formReducer, {
         inputValues: {
@@ -56,7 +56,7 @@ const AuthScreen = () => {
     })
 
     const handleSignUp = () => {
-        //dispatch(signUp(email, password))
+       // dispatch(signup(email, password))
         if(formState.formIsValid){
             dispatch(signUp(formState.inputValues.email, formState.inputValues.password))
         }else{
@@ -95,18 +95,17 @@ const AuthScreen = () => {
                     initialValue=''
                 />
 
-                <TextInput 
-                    style={styles.input}
+                <Input 
                     id='password'
                     label='Contraseña'
                     placeholder='password'
                     keyboardType='default'
+                    password
                     secureTextEntry
                     required
-                    minlenght={6}
                     autoCapitalize='none'
                     errorText= 'Correo electiónico o contraseña incorrectos'
-                    //onChangeText={setPassword}
+                    onInputChange={onInputChangeHandler}
                     initialValue=''
                 />
             </View>
@@ -114,7 +113,7 @@ const AuthScreen = () => {
             <View style={styles.button}>
                 <Button 
                 title={isSingUp ? 'REGISTRARME' : 'LOGIN'} 
-                color={COLORS.primary} 
+                color={COLORS.SEAL_BROWN} 
                 onPress={handleSignUp}
                 />
 
@@ -122,7 +121,7 @@ const AuthScreen = () => {
             <View >
                 <Button
                     title={`Cambiar a ${!isSingUp ? 'Registrarme' : 'Login'}`}
-                    color='#A4AC86' 
+                    color={COLORS.LAUREL_GREEN_SECOND} 
                     onPress={() => setIsSingUp((prevState) => !prevState) }
                 />
             </View>
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         marginBottom: 18,
-        color: COLORS.primary
+        color: COLORS.SEAL_BROWN
     },
     input: {
         height: 40,
