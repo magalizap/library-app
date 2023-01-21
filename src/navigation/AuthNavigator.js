@@ -6,14 +6,14 @@ const Stack = createNativeStackNavigator()
 
 export default CartNavigator = () => {
     return(
-        <Stack.Navigator initialRouteName="Login" screenOptions={{
+        <Stack.Navigator initialRouteName="Auth" screenOptions={{
             headerStyle: {backgroundColor: COLORS.SEAL_BROWN},
             headerTintColor: COLORS.KHAKI_WEB,
             headerTitleStyle: {
                 fontWeight: 'bold'
             }
         }}>
-            <Stack.Screen name="Login" component={AuthScreen} />
+            <Stack.Screen name="Auth" component={AuthScreen} />
         </Stack.Navigator>
     )
 }

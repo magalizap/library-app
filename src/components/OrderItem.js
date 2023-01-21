@@ -13,8 +13,8 @@ const OrderItem = ({ item, onDelete }) => {
   return (
     <View style={styles.order}>
       <View>
-        <Text style={styles.date}>{formatDay(item.date)}</Text>
-        <Text style={styles.total}>${item.total}</Text>
+        <Text style={styles.date}>Fecha: {formatDay(item.date)}</Text>
+        <Text style={styles.total}>Total: ${item.total}</Text>
       </View>
       <View style={styles.action}>
       <TouchableOpacity onPress={() => onDelete(item.id)}>
@@ -40,6 +40,8 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 18,
+    marginRight: 10,
+    fontFamily: 'Andika-Regular'
   },
   total: {
     fontSize: 18,

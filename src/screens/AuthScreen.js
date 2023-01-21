@@ -56,7 +56,6 @@ const AuthScreen = () => {
     })
 
     const handleSignUp = () => {
-       // dispatch(signup(email, password))
         if(formState.formIsValid){
             dispatch(signUp(formState.inputValues.email, formState.inputValues.password))
         }else{
@@ -80,7 +79,7 @@ const AuthScreen = () => {
   return (
     <KeyboardAvoidingView style={styles.screen} behavior='padding' keyboardVerticalOffset={50}>
         <View style={styles.container}>
-            <Text style={styles.title}>Crea una cuenta:</Text>
+            <Text style={styles.title}>{isSingUp ? 'Crea una cuenta' : 'Inicia sesión'}</Text>
             <View>
                 <Input 
                     id='email'
@@ -120,7 +119,7 @@ const AuthScreen = () => {
             </View>
             <View >
                 <Button
-                    title={`Cambiar a ${!isSingUp ? 'Registrarme' : 'Login'}`}
+                    title={` ${!isSingUp ? 'Registrarme' : '¿Ya tienes una sesión creada?  Login'}`}
                     color={COLORS.LAUREL_GREEN_SECOND} 
                     onPress={() => setIsSingUp((prevState) => !prevState) }
                 />

@@ -1,13 +1,20 @@
 import { StyleSheet, FlatList } from 'react-native'
 import React, {useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import PlaceItem from '../components/PlaceItem'
+import * as addressAction from '../store/actions/places.action'
 
 
 
 const SalesScreen = ({navigation}) => {
   
+  const dispatch = useDispatch()
   const places = useSelector(state => state.places.places )
+
+  useEffect(() => {
+    dispatch(addressAction.loadNewBook())
+  },[])
+
   useEffect(() => {
     console.log(places)
   },[places])

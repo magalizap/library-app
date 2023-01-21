@@ -24,12 +24,12 @@ export const CATEGORIES = [
     },
     {
         id: '5',
-        title: 'Acción',
+        title: 'Policial',
         color: COLORS.RUSSET
     },
     {
         id: '6',
-        title: 'Comedia',
+        title: 'Cocina',
         color: COLORS.LAUREL_GREEN_SECOND
     },
 ]

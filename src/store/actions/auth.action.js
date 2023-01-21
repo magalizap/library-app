@@ -29,3 +29,4 @@ export const signUp = (email, password) => {
         }
     }
 }
+

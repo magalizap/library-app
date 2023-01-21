@@ -1,6 +1,9 @@
 import * as FileSystem from 'expo-file-system'
 import Map from '../../constants/Map'
-export const ADD_PLACE = "ADD_PLACE";
+import { insertNewBook, fetchNewBook } from '../../db'
+
+export const ADD_PLACE = "ADD_PLACE"
+export const LOAD_PLACES = 'LOAD_PLACES'
 
 export const addPlace = (title, image, location) => {
   return async (dispatch) => {
@@ -22,12 +25,36 @@ export const addPlace = (title, image, location) => {
         from: image,
         to: Path
       })
+      const result = await insertNewBook(title, Path, address, location.lat, location.lng)
+      console.log(result)
     } catch (error) {
       console.log(error.message)
       throw error
     }
-    dispatch({type: ADD_PLACE, payload: {title, image: Path, address, lat: location.lat, lng: location.lng}})
+    dispatch({
+      type: ADD_PLACE, 
+      payload: {
+        title, 
+        image: Path, 
+        address, 
+        lat: location.lat, 
+        lng: location.lng
+      }
+    })
   }
-
 }
 
+export const loadNewBook = () => {
+  return async(dispatch) => {
+    try {
+      const result = await fetchNewBook()
+      console.log(result)
+      dispatch({
+        type: LOAD_PLACES,
+        places: result.rows._array
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}

@@ -31,7 +31,7 @@ const AddBookScreen = ({navigation, route}) => {
           <TextInput style={styles.input} onChangeText={handleTitleChange} value={title}/>
           <ImageSelector onImage={setImage}/>
           <LocationSelector onLocation={setLocation} mapLocation={route?.params?.mapLocation}/>
-          <Button title='Publicar' color={COLORS.SEAL_BROWN} onPress={handleSave}/>
+          <Button title='Publicar libro' color={COLORS.SEAL_BROWN} onPress={handleSave}/>
       </View>
     </ScrollView>
   )
